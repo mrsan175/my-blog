@@ -1,0 +1,118 @@
+GET http://localhost:5000/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBmZWU3ZTRmLTkxMTktNGE4YS1hZTM4LTkyNjlkZGEyNjQzOCIsImlhdCI6MTY5NjYyMTk1OSwiZXhwIjoxNjk2NjIxOTc0fQ.vMCnJqScV5sxODU3GqejYKim70McB5ovUFt964OP4jE
+
+###
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "username": "mrsan175",
+    "email": "mrsan175@gmail.com",
+    "password": "admin"
+}
+
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "admin"
+}
+
+###
+DELETE  http://localhost:5000/logout
+
+###
+GET http://localhost:5000/api/posts
+
+
+###
+GET http://localhost:5000/api/postslug/oke
+
+
+
+###
+GET http://localhost:5000/api/postslug/wahai-suami-kenapa-engkau-marah-dan-kecewa-saat-istrimu-melahirkan-anak-perempuan
+
+
+###
+PATCH  http://localhost:5000/api/user/abb7a199-4fbe-4219-8495-1a78d3876902
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin",
+    "email": "admin@gmail.com",
+    "roleId": 1
+}
+
+
+###
+POST  http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBmZWU3ZTRmLTkxMTktNGE4YS1hZTM4LTkyNjlkZGEyNjQzOCIsImlhdCI6MTY5NjcyNTgyNywiZXhwIjoxNjk2OTg1MDI3fQ.d8iBrGGT4sK9fFRJIAAtexFmUBoQUNeLr_rm7nfxk28
+
+{
+    "mainImg": "https://cdn.pixabay.com/photo/2016/08/03/09/03/universe-1566159_1280.jpg",
+    "title": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+    "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "cat": "manhaj",
+    "slug": "lor-is-simpladadaawdawyawdawd-duawdaw-wadawdkadadawawdawddawdaawdawdawbdkhawbdkawdbkjadawdaawdawwb-the-printinadawdawg-and-typ",
+    "tags": ""
+}
+
+###
+PATCH  http://localhost:5000/api/post/b90d1e55-b653-4932-91a4-15bab26a1ccb
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBmZWU3ZTRmLTkxMTktNGE4YS1hZTM4LTkyNjlkZGEyNjQzOCIsImlhdCI6MTY5NjgyMTM3OSwiZXhwIjoxNjk3MDgwNTc5fQ.LchIGLwEWExbSpiN2cHoxYaQZuhWlfxpq9MzJRGo4Vw
+
+{
+    "mainImg": "https://cdn.pixabay.com/photo/2016/08/03/09/03/universe-1566159_1280.jpg",
+    "title": "Lorem Ipsum is simply dummy text of the printing and typesetting industrya",
+    "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "cat": "manhaj",
+    "tags": "manhaj, muslim"
+}
+
+###
+DELETE http://localhost:5000/api/post/1b58fa37-71b4-44d8-9348-dd8fb3ec1f6d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBmZWU3ZTRmLTkxMTktNGE4YS1hZTM4LTkyNjlkZGEyNjQzOCIsImlhdCI6MTY5NjYzNTExNiwiZXhwIjoxNjk2ODk0MzE2fQ.q-_7iCGYr6-a0mGcHHf0R6TVc--4NmnxNsicpWOE3j0
+
+
+###
+POST http://localhost:5000/api/comments
+Content-Type: application/json
+
+{
+    "postId": "78700df3-c6ef-4152-b5e0-691606018baf",
+    "text": "awdkawgdawdbawiudawdiuawduawd"
+}
+
+
+
+//Comments
+
+###
+GET http://localhost:5000/api/comments
+
+
+###
+PATCH  http://localhost:5000/api/comment/75bca35c-718e-475d-be56-a6a50b3c7c21
+Content-Type: application/json
+
+{
+    "text": "awdkawgdawdbawiudawdiuawduawd"
+}
+
+###
+POST http://localhost:5000/api/comments
+Content-Type: application/json
+
+{
+    "text": "awdkawgdawdbawiudawdiuawduawd",
+    "postId": "3a30ac09-a263-4b5e-861d-29dbb165b8e4"
+}
+
+###
+DELETE http://localhost:5000/api/comment/75bca35c-718e-475d-be56-a6a50b3c7c21

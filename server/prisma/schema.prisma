@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model comment {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  text      String
+  postId    String?
+  username  String?
+  post      post?    @relation(fields: [postId], references: [id])
+  user      user?    @relation(fields: [username], references: [username])
+
+  @@index([postId], map: "Comment_postId_fkey")
+  @@index([username], map: "Comment_username_fkey")
+}
+
+model post {
+  id        String    @id @default(uuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  mainImg   String?
+  title     String
+  content   String    @db.LongText
+  published Boolean   @default(false)
+  authorId  String
+  slug      String    @unique
+  cat       String
+  tags      String?
+  comment   comment[]
+  user      user      @relation(fields: [authorId], references: [id], map: "Post_authorId_fkey")
+
+  @@index([authorId], map: "Post_authorId_fkey")
+}
+
+model role {
+  id          Int    @id @default(autoincrement())
+  name        String @unique(map: "Role_name_key")
+  description String
+  user        user[]
+}
+
+model user {
+  id           String    @id @default(uuid())
+  img          String?
+  bio          String?
+  username     String    @unique(map: "User_username_key")
+  email        String    @unique(map: "User_email_key")
+  password     String
+  roleId       Int       @default(2)
+  refreshToken String?   @unique @db.VarChar(500)
+  comment      comment[]
+  post         post[]
+  role         role      @relation(fields: [roleId], references: [id], map: "User_roleId_fkey")
+
+  @@index([roleId], map: "User_roleId_fkey")
+}
